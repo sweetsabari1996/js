@@ -1,0 +1,43 @@
+<html ng-app="myApp">
+   
+   <head>
+      <title>Angular JS Controller</title>
+      <script src ="angular.min.js"></script>
+	   <script src ="angular-route.js"></script>
+	  <script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.html"
+    })
+    .when("/red", {
+        templateUrl : "application.html"
+    })
+    .when("/green", {
+        templateUrl : "green.html"
+    })
+    .when("/blue", {
+        templateUrl : "blue.html"
+    });
+});
+app.controller('formCtrl', function($scope,$location) {
+    $scope.firstname = "shanmugam";
+    $scope.lastname = "paleeswaraiah";
+	
+       $scope.add=function(){
+	      $location.path('green');
+	   }
+		
+		
+		
+		
+
+});
+
+</script>
+   </head>
+   <body>
+      <div ng-view></div>
+   </body>
+</html>
